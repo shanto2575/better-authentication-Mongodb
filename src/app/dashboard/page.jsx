@@ -12,9 +12,11 @@ const DashboardPage = async() => {
     if(!user){
         return <div>Place sign in to access the Deshboard</div>
     }
+    
     return (
         <div>
             <h2>Dashboard</h2>
+            
         </div>
     )
 }

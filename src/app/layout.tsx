@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from './../Components/Navbar';
 import NextjsThemeProvider from '../Provider/NextjsThemeProvider'
-import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,10 +35,8 @@ export default function RootLayout({
           <Navbar></Navbar>
           <main className="flex-1">
             {children}
-
           </main>
         </NextjsThemeProvider>
-        <Toaster position="top-center" />
       </body>
     </html>
   );

@@ -2,23 +2,10 @@
 import { Link, Button } from "@heroui/react";
 import { signOut, useSession } from '@/app/lib/auth-client'
 import ThemeSwitch from './../themeSwitch/ThemeSwitch';
-import toast from "react-hot-toast";
-import { useEffect, useRef } from "react";
 
 const Navbar = () => {
     const { data, isPending } = useSession()
     const user = data?.user;
-
-
-    const hasShownToast = useRef(false);
-
-
-    useEffect(() => {
-        if (user && !hasShownToast.current) {
-            toast.success(`Welcome ${user.name} 🎉`);
-            hasShownToast.current = true;
-        }
-    }, [user]);
 
     if (isPending) {
         return <div>loading....</div>
@@ -34,8 +21,9 @@ const Navbar = () => {
 
                     <ul className="flex items-center gap-4">
                         <li><Link href="/">Home</Link></li>
-                        <li><Link href="/about">About</Link></li>
+                        <li><Link href="/model">Model</Link></li>
                         <li><Link href="/dashboard">Dashboard</Link></li>
+                        <li><Link href="/server-action">Server-Action</Link></li>
                     </ul>
 
                     <div className="flex items-center gap-4">
@@ -47,8 +35,7 @@ const Navbar = () => {
                                     <Button
                                         onClick={() => {
                                             signOut();
-                                            toast("Logged out 👋");
-                                            hasShownToast.current = false;
+                                            
                                         }}
                                         variant="ghost"
                                     >

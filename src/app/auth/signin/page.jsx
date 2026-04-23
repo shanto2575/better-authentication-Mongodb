@@ -16,7 +16,7 @@ const SignInPage = () => {
         const { data, error } = await authClient.signIn.email({
             email: user.email,
             password: user.password,
-            callbackURL: '/'
+            callbackURL: '/dashboard'
         })
         console.log('sign In response :', { data, error })
     }
